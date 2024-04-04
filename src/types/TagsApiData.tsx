@@ -1,19 +1,15 @@
 export interface TagsApiData {
-    answer_id: number;
-    content_license: string;
-    creation_date: number;
-    is_accepted: boolean;
-    last_activity_date: number;
-    last_edit_date: number;
-    owner: {
-      account_id: number;
-      display_name: string;
+    count: number;
+    name: string;
+    has_synonyms: boolean;
+    is_required: boolean;
+    is_moderator_only: boolean;
+    collectives: [{
+      description: string;
       link: string;
-      profile_image: string;
-      reputation: number;
-      user_id: number;
-      user_type: string;
-    };
-    question_id: number;
-    score: number;
+      name: string;
+      external_links:[{link: string,type: string}];
+      slag: string;
+      tags: [string];
+    }];
   }

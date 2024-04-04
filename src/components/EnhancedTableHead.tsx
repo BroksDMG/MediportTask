@@ -11,49 +11,46 @@ type Order = 'asc' | 'desc';
 
 interface HeadCell {
   disablePadding: boolean;
-  id: keyof TagsApiData; // use Data instead of TagsApiData
+  id: keyof TagsApiData;
   label: string;
   numeric: boolean;
 }
 
 const headCells: readonly HeadCell[] = [
   {
-    id: 'answer_id',
-    numeric: true,
-    disablePadding: false,
-    label: 'Answer ID',
-  },
-  {
-    id: 'content_license',
+    id: 'name',
     numeric: false,
     disablePadding: false,
-    label: 'Content License',
+    label: 'name',
   },
   {
-    id: 'creation_date',
+    id: 'count',
     numeric: true,
     disablePadding: false,
-    label: 'Creation Date',
+    label: 'count',
   },
   {
-    id: 'is_accepted',
+    id: 'has_synonyms',
     numeric: true,
     disablePadding: false,
-    label: 'Is Accepted',
+    label: 'has synonyms?',
   },
   {
-    id: 'last_activity_date',
+    id: 'is_moderator_only',
     numeric: true,
     disablePadding: false,
-    label: 'Last Activity Date',
+    label: 'moderator only?',
   },
-  // add more fields as needed
+  {
+    id: 'is_required',
+    numeric: true,
+    disablePadding: false,
+    label: 'required?',
+  },
 ];
   
   interface EnhancedTableHeadProps {
-    numSelected: number;
     onRequestSort: (event: React.MouseEvent<unknown>, property: keyof TagsApiData) => void;
-    onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
     order: Order;
     orderBy: string;
     rowCount: number;
@@ -70,6 +67,7 @@ const headCells: readonly HeadCell[] = [
     return (
       <TableHead>
         <TableRow>
+        <TableCell/>
           {headCells.map((headCell) => (
             <TableCell
               key={headCell.id}
