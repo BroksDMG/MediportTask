@@ -9,7 +9,7 @@ import Error from './components/Error';
 
 
 function App() {
-  const {setTags} = useTagContext();
+  const {tags,setTags} = useTagContext();
   const [isLoaded,setIsLoaded] = useState(false);
   const [errorMessage,setErrorMessage] = useState('')
   useEffect(() => {
@@ -25,7 +25,7 @@ function App() {
       setErrorMessage(error.message)
       console.log(error)})
   },[setTags])
-
+  console.log(tags)
   if(isLoaded){
     return <Loading/>
   }
